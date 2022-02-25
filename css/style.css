@@ -1058,10 +1058,7 @@ img {
   transition: max-height 1s, easy-in-out;
 }
 .respect-slider-star-img img {
-  max-height: 198px;
   width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
   border-radius: 10px;
 }
 .respect-slider-star-name {
