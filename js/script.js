@@ -92,7 +92,7 @@ if (window.innerWidth > 768) {
             
             
             if (isShow) {
-                e.target.textContent = 'Свернуть'
+                e.target.style.display = 'none'
                 respectStars.forEach((i)=>{
                         i.style.maxHeight = i.scrollHeight + 'px'
                         i.style.overflow = null
@@ -102,24 +102,25 @@ if (window.innerWidth > 768) {
                             i.style.maxHeight = null
                         },500)
                 })
-            } else {
-                e.target.textContent = 'Показать еще'
-                respectStars.forEach((i, idx)=>{
-                    if (idx >=3) {
-                        i.style.maxHeight = i.scrollHeight + 'px'
+            } 
+            // else {
+            //     e.target.textContent = 'Показать еще'
+            //     respectStars.forEach((i, idx)=>{
+            //         if (idx >=3) {
+            //             i.style.maxHeight = i.scrollHeight + 'px'
                         
                         
-                        i.style.overflow = 'hidden'
+            //             i.style.overflow = 'hidden'
                         
-                        i.style.margin = 0
-                        setTimeout(function() {
-                            i.style.maxHeight = 0 + 'px'
-                        },500)
-                    }
-                    isShow = true
+            //             i.style.margin = 0
+            //             setTimeout(function() {
+            //                 i.style.maxHeight = 0 + 'px'
+            //             },500)
+            //         }
+            //         isShow = true
                     
-                })
-            }
+            //     })
+            // }
         }
     })
 }
@@ -246,7 +247,8 @@ var input = document.querySelector("#phone");
       onlyCountries: ['UA', 'KZ', 'RU', 'CZ', 'KG'],
       preferredCountries: ['UA'],
       separateDialCode: true,
-      utilsScript: "mask/js/utils.js",
+      formatOnDisplay: true,
+      utilsScript: "mask/js/utils.js, ",
     });
 
 
@@ -276,3 +278,17 @@ $('.msg').html(msg + input + '</span>');
 
 
 
+const anchors = document.querySelectorAll('a[href*="#"]')
+
+for (let anchor of anchors) {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault()
+    
+    const blockID = anchor.getAttribute('href').substr(1)
+    
+    document.getElementById(blockID).scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    })
+  })
+}

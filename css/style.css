@@ -38,16 +38,15 @@ img {
 .social-item {
   margin: 0px 30px;
 }
+.social-item a {
+  display: flex;
+  width: 23px;
+}
 .social-item:first-child {
   margin-left: 0;
 }
 .social-item:last-child {
   margin-right: 0;
-}
-.social-item a {
-  display: flex;
-  width: 23px;
-  heigth: 23px;
 }
 
 .text-selection {
@@ -138,6 +137,41 @@ img {
 .warn svg {
   margin: 0 !important;
 }
+.warn-text {
+  position: absolute;
+  left: -30px;
+  top: 30px;
+  padding: 12px 22px 21px 16px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  max-width: 421px;
+  border-radius: 10px;
+  font-size: 18px;
+  line-height: 24px;
+  font-family: "Source Sans Pro";
+  font-weight: 400;
+  background-color: #fff;
+  box-shadow: 0px 0px 5.44967px rgba(0, 0, 0, 0.04), 0px 5.44967px 43.5973px rgba(0, 0, 0, 0.16);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.5s, easy-in-out;
+  color: #80869B;
+}
+.warn-text::before {
+  content: "";
+  position: absolute;
+  left: 27px;
+  top: -11px;
+  width: 27px;
+  height: 12px;
+  background-image: url("../img/tooltip.png");
+  background-repeat: no-repeat;
+}
+.warn:hover .warn-text {
+  opacity: 1;
+  z-index: 1;
+}
 
 .btn {
   border: none;
@@ -161,6 +195,26 @@ img {
   font-weight: 400;
   line-height: 26px;
   letter-spacing: 0.02em;
+}
+.form .input::-moz-placeholder {
+  -moz-transition: opacity 1s, easy-in-out;
+  transition: opacity 1s, easy-in-out;
+}
+.form .input:-ms-input-placeholder {
+  -ms-transition: opacity 1s, easy-in-out;
+  transition: opacity 1s, easy-in-out;
+}
+.form .input::placeholder {
+  transition: opacity 1s, easy-in-out;
+}
+.form .input:focus::-moz-placeholder {
+  opacity: 0;
+}
+.form .input:focus:-ms-input-placeholder {
+  opacity: 0;
+}
+.form .input:focus::placeholder {
+  opacity: 0;
 }
 .form-policy {
   font-size: 20px;
@@ -203,7 +257,7 @@ img {
 }
 .header-menu-item a {
   position: relative;
-  margin: 0px 18px;
+  margin: 0px 9px;
   font-size: 16px;
   font-weight: 600;
   line-height: 33px;
@@ -321,9 +375,6 @@ img {
 .why-row:nth-child(2n) img {
   display: block;
   margin-left: auto;
-}
-.why-row img {
-  border-radius: 10px;
 }
 .why-edge {
   display: flex;
@@ -735,7 +786,7 @@ img {
 .why-work-accordion .accordion-show {
   position: absolute;
   right: -40px;
-  top: 5px;
+  top: 3px;
   width: calc(100% + 40px);
   height: 100%;
   display: flex;
@@ -1007,6 +1058,10 @@ img {
   transition: max-height 1s, easy-in-out;
 }
 .respect-slider-star-img img {
+  max-height: 198px;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 10px;
 }
 .respect-slider-star-name {
@@ -1224,6 +1279,15 @@ img {
   font-family: "Source Sans Pro";
   color: #80869B;
 }
+.footer-text a {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: 0.02em;
+  font-family: "Source Sans Pro";
+  color: #80869B;
+  text-decoration: underline;
+}
 .footer-title {
   margin-bottom: 50px;
   font-size: 24px;
@@ -1254,7 +1318,9 @@ img {
   color: #80869B;
 }
 .footer-phone {
-  display: block;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
   margin-bottom: 50px;
   font-size: 20px;
   font-weight: 400;
@@ -1265,6 +1331,7 @@ img {
 .footer-phone span {
   display: block;
   padding-top: 5px;
+  width: 100%;
   font-size: 20px;
   font-weight: 400;
   line-height: 26px;
@@ -1273,6 +1340,9 @@ img {
 }
 .footer-phone:last-child {
   margin-bottom: 0;
+}
+.footer-phone svg {
+  margin-right: 8px;
 }
 
 .modal {
@@ -1386,6 +1456,29 @@ img {
   right: 95px;
 }
 
+@-webkit-keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  40% {
+    transform: translate(-50%, -50%) scale(1.3);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  40% {
+    transform: translate(-50%, -50%) scale(1.3);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
 @media screen and (max-width: 1200px) {
   .header-menu-item a {
     margin: 0px 10px;
@@ -1698,6 +1791,18 @@ img {
   }
 }
 @media screen and (max-width: 768px) {
+  .warn-text {
+    left: -85px;
+    top: -145px;
+    max-width: 249px;
+  }
+  .warn-text::before {
+    left: 81px;
+    top: auto;
+    bottom: -11px;
+    transform: rotate(180deg);
+  }
+
   .mob-none {
     display: none;
   }
@@ -1804,6 +1909,9 @@ img {
     padding-left: 0;
     box-shadow: none;
   }
+  .admission-panel-info {
+    order: 1;
+  }
   .admission-name {
     margin-bottom: 20px;
     font-size: 22px;
@@ -1822,7 +1930,7 @@ img {
     font-size: 16px;
     font-weight: 400;
     line-height: 24px;
-    line-height-letter-spacing: 0.02em;
+    letter-spacing: 0.02em;
   }
   .admission-price-title {
     margin-bottom: 5px;
@@ -1962,7 +2070,7 @@ img {
     font-size: 16px;
     font-weight: 400;
     line-height: 24px;
-    line-height-letter-spacing: 0.02em;
+    letter-spacing: 0.02em;
     font-weight: 500;
     background-image: url("../img/live/bottom-m.jpg");
   }
@@ -2140,7 +2248,7 @@ img {
   .respect-slider-star-social a {
     margin: 0;
     margin-bottom: 10px;
-    padding: 6px;
+    padding: 18px;
     display: flex;
     border-radius: 10px;
     background-color: #fff;
@@ -2199,7 +2307,7 @@ img {
     font-size: 16px;
     font-weight: 400;
     line-height: 24px;
-    line-height-letter-spacing: 0.02em;
+    letter-spacing: 0.02em;
   }
   .contact .form-btn {
     padding: 13px 34px;
@@ -2295,7 +2403,7 @@ img {
     font-size: 16px;
     font-weight: 400;
     line-height: 24px;
-    line-height-letter-spacing: 0.02em;
+    letter-spacing: 0.02em;
   }
   .modal .form-btn {
     padding: 13px 39px;
@@ -2316,28 +2424,6 @@ img {
     font-size: 16px;
     font-weight: 400;
     line-height: 24px;
-    line-height-letter-spacing: 0.02em;
-  }
-}
-@-webkit-keyframes pulse {
-  0% {
-    transform: translate(-50%, -50%) scale(1);
-  }
-  40% {
-    transform: translate(-50%, -50%) scale(1.3);
-  }
-  100% {
-    transform: translate(-50%, -50%) scale(1);
-  }
-}
-@keyframes pulse {
-  0% {
-    transform: translate(-50%, -50%) scale(1);
-  }
-  40% {
-    transform: translate(-50%, -50%) scale(1.3);
-  }
-  100% {
-    transform: translate(-50%, -50%) scale(1);
+    letter-spacing: 0.02em;
   }
 }
